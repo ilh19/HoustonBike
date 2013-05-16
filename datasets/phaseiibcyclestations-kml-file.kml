@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>Phase II Bcycle Stations </name>
+  <description><![CDATA[Proposed locations for Houston B-cycle station expansion]]></description>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style17">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style7">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style5">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style6">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style13">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style15">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style3">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style11">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style12">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style10">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/grn-pushpin.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style19">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/grn-pushpin.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style20">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/grn-pushpin.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style18">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style16">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style4">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style9">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style8">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style21">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style1">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style14">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Placemark>
+    <name>Bayou Place</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-95.366486,29.761497,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Commerce and Main</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style17</styleUrl>
+    <Point>
+      <coordinates>-95.359955,29.763056,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Rusk &amp; St Emanuel</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style7</styleUrl>
+    <Point>
+      <coordinates>-95.354073,29.752741,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>One Park Place</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style5</styleUrl>
+    <Point>
+      <coordinates>-95.361176,29.753773,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>YMCA</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style6</styleUrl>
+    <Point>
+      <coordinates>-95.370605,29.752502,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Pavilion</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style13</styleUrl>
+    <Point>
+      <coordinates>-95.366280,29.755054,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>McKinney &amp; Caroline</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style15</styleUrl>
+    <Point>
+      <coordinates>-95.362465,29.755678,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Center Point</name>
+    <description><![CDATA[<div dir="ltr"></div>]]></description>
+    <styleUrl>#style3</styleUrl>
+    <Point>
+      <coordinates>-95.367638,29.757170,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Metro Transit Ctr</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style11</styleUrl>
+    <Point>
+      <coordinates>-95.370659,29.750071,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Sabine Bridge</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style12</styleUrl>
+    <Point>
+      <coordinates>-95.375450,29.761625,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>GRB Station</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style10</styleUrl>
+    <Point>
+      <coordinates>-95.359192,29.751511,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>City Hall</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style19</styleUrl>
+    <Point>
+      <coordinates>-95.369682,29.759991,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Market Square</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style20</styleUrl>
+    <Point>
+      <coordinates>-95.361992,29.762749,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Gray &amp; Baldwin</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style18</styleUrl>
+    <Point>
+      <coordinates>-95.377335,29.752176,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Elgin &amp; Milam</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style16</styleUrl>
+    <Point>
+      <coordinates>-95.378540,29.743074,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Berry &amp; Main</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style4</styleUrl>
+    <Point>
+      <coordinates>-95.379181,29.739256,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Museum of Fine Arts</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style9</styleUrl>
+    <Point>
+      <coordinates>-95.389137,29.724945,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Zoo</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style8</styleUrl>
+    <Point>
+      <coordinates>-95.390053,29.715759,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Freed Library - Montrose</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style21</styleUrl>
+    <Point>
+      <coordinates>-95.391243,29.735558,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Hay Merchant - Montrose</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style1</styleUrl>
+    <Point>
+      <coordinates>-95.392731,29.744799,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Milam &amp; Capitol</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style14</styleUrl>
+    <Point>
+      <coordinates>-95.364632,29.760279,0.000000</coordinates>
+    </Point>
+  </Placemark>
+</Document>
+</kml>
