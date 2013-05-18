@@ -7,11 +7,35 @@ if (Meteor.isClient) {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    // add layers
-    addGoogleBikeLayer(map);
-    addCohBikeLayer(map);
-    addRentalLocationsLayer(map);
+    // ADD LAYERS
+    googleBikeLayer = getGoogleBikeLayer(map);
+    googleBikeLayer.setMap(map);
 
+    cityBikeLayer = getCityBikeLayer(map);
+    cityBikeLayer.setMap(map);
+
+    rentalLayer = getRentalBikeLayer(map);
+    rentalLayer.setMap(map);
+
+    // MAP LISTENERS
+    google.maps.event.addListener(map, 'click', function(e) {
+      placeMarker(map, e.latLng);
+    });
+
+    google.maps.event.addListener(cityBikeLayer, 'click', function(e) {
+      // Change the content of the InfoWindow
+      e.infoWindowHtml = "<b>" + "Bike Route: " + "</b>" + e.row['Lane Type'].value + "<br>";
+    });
+
+    google.maps.event.addListener(rentalLayer, 'click', function(e) {
+      // Change the content of the InfoWindow
+      // BCycle logo, link, location name
+      e.infoWindowHtml = "<img src=\"Houston_B-cycle_Logo.jpg\" alt=\"Houston BCycle Logo\">" +
+        "<a href=" + "http://houston.bcycle.com" + " target=\"_blank\">" +
+        "BCycle" + "</a>" + ": " + e.row['name'].value;
+    });
+
+    // NAVBAR LISTENERS
     $('#rentalLayer').click(function(event) {
       switchVisibility(rentalLayer, map);
       $mark = $(this).find('.mark');
@@ -24,11 +48,6 @@ if (Meteor.isClient) {
     $('#googleBikeLayer').click(function(event) {
       switchVisibility(googleBikeLayer, map);
       $(this).toggleClass('marked');
-    });
-
-    // add pins to the map on click
-    google.maps.event.addListener(map, 'click', function(e) {
-      placeMarker(map, e.latLng);
     });
 
   }; // end template
@@ -45,13 +64,12 @@ if (Meteor.isClient) {
     });
   };
 
-  var addGoogleBikeLayer = function(map) {
-    var googleBikeLayer = new google.maps.BicyclingLayer();
-    googleBikeLayer.setMap(map);
+  var getGoogleBikeLayer = function(map) {
+    return new google.maps.BicyclingLayer();
   };
 
-  var addCohBikeLayer = function(map) {
-    var cityBikeLayer = new google.maps.FusionTablesLayer({
+  var getCityBikeLayer = function(map) {
+    return cityBikeLayer = new google.maps.FusionTablesLayer({
       query: {
         select: 'geometry',
         from: '1G_rg3pp5LTK1T3IoEcMSWsV4Dv6O53VTOXBIkI4'
@@ -66,17 +84,10 @@ if (Meteor.isClient) {
       //  }
       //}]
     });
-    cityBikeLayer.setMap(map);
-
-    // setting the description for the COH bike lane
-    google.maps.event.addListener(cityBikeLayer, 'click', function(e) {
-      // Change the content of the InfoWindow
-      e.infoWindowHtml = "<b>" + "Bike Route: " + "</b>" + e.row['Lane Type'].value + "<br>";
-    });
   };
 
-  var addRentalLocationsLayer = function(map) {
-    //var rentalLayer = new google.maps.KmlLayer({
+  var getRentalBikeLayer = function(map) {
+    // return rentalLayer = new google.maps.KmlLayer({
     //    url: 'https://data.codeforhouston.com.s3.amazonaws.com/2013-05-13T23:25:41.376Z/phaseiibcyclestations-kml-file.kml',
     //    styles: [{
     //        markerOptions: {
@@ -84,7 +95,7 @@ if (Meteor.isClient) {
     //        }
     //       }]
     //    });
-    var rentalLayer = new google.maps.FusionTablesLayer({
+    return new google.maps.FusionTablesLayer({
       query: {
         select: 'geometry',
         from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
@@ -94,16 +105,6 @@ if (Meteor.isClient) {
           iconName: "b_blue"
         }
       }]
-    });
-    rentalLayer.setMap(map);
-
-    // setting the description for bike rental
-    google.maps.event.addListener(rentalLayer, 'click', function(e) {
-      // Change the content of the InfoWindow
-      // BCycle logo, link, location name
-      e.infoWindowHtml = "<img src=\"Houston_B-cycle_Logo.jpg\" alt=\"Houston BCycle Logo\">" +
-        "<a href=" + "http://houston.bcycle.com" + " target=\"_blank\">" +
-        "BCycle" + "</a>" + ": " + e.row['name'].value;
     });
   };
 
