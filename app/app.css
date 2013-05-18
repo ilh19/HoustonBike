@@ -8,3 +8,21 @@ body { height: 100%; margin: 0; padding: 0 }
 .marked  .mark {
 	visibility: hidden;
 }
+
+/* Styling for search autocomplete */
+.ui-autocomplete {
+    background: #fafafa;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    list-style-type: none;
+    border-radius: 5px;
+}
+
+.ui-menu-item {
+    padding: 5px;
+}
+
+#searchbox {
+    background: url(location.png) no-repeat scroll 7px 3px;
+    padding-left: 30px;
+}

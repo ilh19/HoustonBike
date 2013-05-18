@@ -4,9 +4,18 @@
 	<script type="text/javascript"
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbckcJZ_pOvEhYkJIKrQEQWVEgYc9dYRY&sensor=true">
 	</script>
+<<<<<<< HEAD
 	<script type="text/javascript"
 	  src="bubble.js">
 	</script>
+=======
+    <script type="text/javascript" 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js">
+    </script> 
+    <script 
+        src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js">
+    </script>
+>>>>>>> 8da82a13f4f1586695cbfaa42ab298f6f66933e7
 </head>
 
 <body>
@@ -23,7 +32,7 @@
 	<div id="header" class="navbar navbar-fixed-top">
 	  <div class="navbar-inner">
 	    <div class="container">
-	      <a class="brand" href="#">Houston Bike App</a>
+	      <a class="brand" href="#">Bike Around Houston</a>
 	      <div class="nav-collapse">
 	        <ul class="nav">
 	          <li class="dropdown">
@@ -31,12 +40,12 @@
 	            <ul class="dropdown-menu">
 	              <li><a id="rentalLayer" href="#"><span class="mark">&#10004;</span> Bike Rentals</a></li>
 	              <li><a id="cityBikeLayer" href="#"><span class="mark">&#10004;</span> Bike Lanes</a></li>
-				  <li><a id="yelpLayer" href="#"><span class="mark">&#10004;</span> Yelp Bike Shop</a></li>
+				  <li><a id="yelpLayer" href="#"><span class="mark">&#10004;</span> Bike Shops by Yelp &copy;</a></li>
 	              <li><a id="googleBikeLayer" href="#"><span class="mark">&#10004;</span> Bike Lanes by Google &copy;</a></li>
 	            </ul>
 	        </ul>
 	        <form class="navbar-search pull-right" action="">
-	          <input type="text" class="search-query span2" placeholder="Doesn't work yet. :(">
+	          <input id="searchbox" type="text" class="search-query span2" placeholder="Location">
 	        </form>
 	      </div><!-- /.nav-collapse -->
 	    </div><!-- /.container -->
