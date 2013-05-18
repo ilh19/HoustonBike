@@ -26,15 +26,23 @@ if (Meteor.isClient) {
 
     google.maps.event.addListener(cityBikeLayer, 'click', function(e) {
       // Change the content of the InfoWindow
-      e.infoWindowHtml = "<b>" + "Bike Route: " + "</b>" + e.row['Lane Type'].value + "<br>";
+      var bubbleContent = "<b>" + "Bike Route: " + "</b>" + e.row['Lane Type'].value + "<br>";
+    
+      var bubble = createPositionBubble(bubbleContent, e.latLng, map);
+
+      bubble.open();
     });
 
     google.maps.event.addListener(rentalLayer, 'click', function(e) {
       // Change the content of the InfoWindow
       // BCycle logo, link, location name
-      e.infoWindowHtml = "<img src=\"Houston_B-cycle_Logo.jpg\" alt=\"Houston BCycle Logo\">" +
+      var bubbleContent = "<img src=\"Houston_B-cycle_Logo.jpg\" alt=\"Houston BCycle Logo\">" +
         "<a style=\"padding-left:10px\" href=" + "http://houston.bcycle.com" + " target=\"_blank\">" +
         "BCycle" + "</a>" + ": " + e.row['name'].value;
+
+      var bubble = createPositionBubble(bubbleContent, e.latLng, map);
+
+      bubble.open();
     });
 
     // NAVBAR LISTENERS
@@ -96,20 +104,53 @@ if (Meteor.isClient) {
 						var currentMarker = yelpMarkers[j];
 						
 						if(currentMarker.position.equals(e.latLng)) {
-							var infoWindow = new google.maps.InfoWindow({
-								content: Template.yelpInfo(yelpMarkers[j].biz) 
-							});
-						
-							infoWindow.open(map,yelpMarkers[j]);
+              var bubble = createBubble(
+                Template.yelpInfo(yelpMarkers[j].biz),
+                map);
+              bubble.open(map, yelpMarkers[j]);
 						}
 					}
-					console.log(yelpMarkers, e.latLng);
 				});
 			}
 		}
 	});
   }
   
+  var createBubble = function(content, map) {
+    var infoWindow = new InfoBubble({
+      content: content,
+      borderRadius: 0,
+      padding: 15,
+      maxWidth: '300px',
+      minHeight: '150px',
+      borderColor: '#4300ff',
+      borderWidth: 4,
+      arrowSize: '0px',
+      map: map,
+      minWidth: '200px',
+    });
+
+    return infoWindow;
+  }
+
+  var createPositionBubble = function(content, position, map) {
+    var infoWindow = new InfoBubble({
+      content: content,
+      borderRadius: 0,
+      padding: 15,
+      position: position,
+      maxWidth: '300px',
+      minHeight: '150px',
+      borderColor: '#4300ff',
+      borderWidth: 4,
+      arrowSize: '0px',
+      map: map,
+      minWidth: '200px',
+    });
+
+    return infoWindow;
+  }
+
   var switchVisibility = function(layer, map) {
     if (layer.getMap()) layer.setMap(null);
     else layer.setMap(map);
@@ -131,7 +172,8 @@ if (Meteor.isClient) {
       query: {
         select: 'geometry',
         from: '1G_rg3pp5LTK1T3IoEcMSWsV4Dv6O53VTOXBIkI4'
-      }
+      },
+      suppressInfoWindows : true
       //styles: [{
       //  polygonOptions: {
       //      fillColor: "#274e13",
@@ -162,7 +204,8 @@ if (Meteor.isClient) {
         markerOptions: {
           iconName: "b_blue"
         }
-      }]
+      }],
+      suppressInfoWindows : true
     });
     rentalLayer.setMap(map);
 	}
