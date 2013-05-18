@@ -29,13 +29,16 @@
 		cityBikeLayer.setMap(map);
 
 		// bike rental locations
-		var rentalLayer = new google.maps.FusionTablesLayer({
-		  query: {
-		    select: 'geometry',
-		    from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
-		  },
-		});
+		// TODO: use API call to get URL
+		var rentalLayer = new google.maps.KmlLayer('https://data.codeforhouston.com.s3.amazonaws.com/2013-05-13T23:25:41.376Z/phaseiibcyclestations-kml-file.kml');
+		// var rentalLayer = new google.maps.FusionTablesLayer({
+		//   query: {
+		//     select: 'geometry',
+		//     from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
+		//   },
+		// });
 		rentalLayer.setMap(map);
+
 
 	  }
 	  google.maps.event.addDomListener(window, 'load', initialize);
@@ -45,10 +48,6 @@
 <body>
 	{{> map}}
 </body>
-
-<!-- <body>
-  {{> hello}}
-</body> -->
 
 <template name="map">
   <div id="map-canvas"/>
