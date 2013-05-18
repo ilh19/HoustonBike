@@ -1,4 +1,6 @@
 /* CSS declarations go here */
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0 }
-#map-canvas { height: 100% }
+#map-canvas { height: 100%; }
+#map-canvas img { max-width: none; }
+#spacer { height: 40px;}
