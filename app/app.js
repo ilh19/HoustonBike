@@ -163,7 +163,8 @@ if (Meteor.isClient) {
   var placeMarker = function(map, location) {
     var marker = new google.maps.Marker({
       position: location,
-      map: map
+      map: map,
+      icon: 'star.png'
     });
   };
 
