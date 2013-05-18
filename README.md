@@ -5,4 +5,4 @@ App to help Houstonians find all Houston Bike Trails, Bike Lanes, Bike Share B-C
 
 This project will be submitted for the Houston Hackathon (http://www.houstonhackathon.com/).
 
-Test
+Link to our app: http://houstonbikeapp.meteor.com
