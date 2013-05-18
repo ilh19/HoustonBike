@@ -31,7 +31,7 @@ if (Meteor.isClient) {
       // Change the content of the InfoWindow
       // BCycle logo, link, location name
       e.infoWindowHtml = "<img src=\"Houston_B-cycle_Logo.jpg\" alt=\"Houston BCycle Logo\">" +
-        "<a href=" + "http://houston.bcycle.com" + " target=\"_blank\">" +
+        "<a style=\"padding-left:10px\" href=" + "http://houston.bcycle.com" + " target=\"_blank\">" +
         "BCycle" + "</a>" + ": " + e.row['name'].value;
     });
 
