@@ -61,7 +61,7 @@ if (Meteor.isClient) {
     // setting the description for bike rental
     google.maps.event.addListener(rentalLayer, 'click', function(e) {
       // Change the content of the InfoWindow
-      e.infoWindowHtml = "<b>" + "BCycle: " + "</b>" + e.row['name'].value + "<br>";
+      e.infoWindowHtml = "<a href=" + "http://houston.bcycle.com" + " target=\"_blank\">" + "BCycle" + "</a>" + ": " + e.row['name'].value;
     });
     
 	var switchVisibility = function(layer, map) {
