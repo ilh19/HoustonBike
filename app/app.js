@@ -1,15 +1,40 @@
 if (Meteor.isClient) {
-  
-  Template.map.events({
-    'initialize' : function () {
-      if (typeof console !== 'undefined')
-        console.log("map initialized");
-    }
-  });
+
+  Template.map.rendered = function() {
+    var mapOptions = {
+      center: new google.maps.LatLng(29.760193, -95.36939),
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    // ------ Google bike lanes ------
+    var googleBikeLayer = new google.maps.BicyclingLayer();
+    googleBikeLayer.setMap(map);
+
+    // ------ COH bike lanes ------
+    var cityBikeLayer = new google.maps.FusionTablesLayer({
+      query: {
+        select: 'geometry',
+        from: '1G_rg3pp5LTK1T3IoEcMSWsV4Dv6O53VTOXBIkI4'
+      },
+    });
+    cityBikeLayer.setMap(map);
+
+    // ------ Bike rental locations ------
+    var rentalLayer = new google.maps.KmlLayer('https://data.codeforhouston.com.s3.amazonaws.com/2013-05-13T23:25:41.376Z/phaseiibcyclestations-kml-file.kml');
+    // var rentalLayer = new google.maps.FusionTablesLayer({
+    //   query: {
+    //     select: 'geometry',
+    //     from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
+    //   },
+    // });
+    rentalLayer.setMap(map);
+  };
 }
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+// if (Meteor.isServer) {
+//   Meteor.startup(function() {
+//     // code to run on server at startup
+//   });
+// }
