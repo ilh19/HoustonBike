@@ -20,9 +20,9 @@ if (Meteor.isClient) {
 	yelpLayer(map);
 
     // MAP LISTENERS
-    google.maps.event.addListener(map, 'click', function(e) {
-      placeMarker(map, e.latLng);
-    });
+    // google.maps.event.addListener(map, 'click', function(e) {
+    //   placeMarker(map, e.latLng);
+    // });
 
     google.maps.event.addListener(cityBikeLayer, 'click', function(e) {
       // Change the content of the InfoWindow
