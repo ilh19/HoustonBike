@@ -30,6 +30,27 @@ if (Meteor.isClient) {
     //   },
     // });
     rentalLayer.setMap(map);
+	
+	var switchVisibility = function(rentalLayer, map) {
+		if(rentalLayer.getMap())
+			rentalLayer.setMap(null);
+		else
+			rentalLayer.setMap(map);
+	}
+	
+	$('#rentalLayer').click(function(event) {
+		switchVisibility(rentalLayer, map);
+		$mark = $(this).find('.mark');
+		$(this).toggleClass('marked');
+	});
+	$('#cityBikeLayer').click(function(event) {
+		switchVisibility(cityBikeLayer, map);
+		$(this).toggleClass('marked');
+	});
+	$('#googleBikeLayer').click(function(event) {
+		switchVisibility(googleBikeLayer, map);
+		$(this).toggleClass('marked');
+	});
   };
 }
 
