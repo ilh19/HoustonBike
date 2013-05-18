@@ -51,12 +51,26 @@ if (Meteor.isClient) {
       switchVisibility(googleBikeLayer, map);
       $(this).toggleClass('marked');
     });
+	$('#yelpLayer').click(function(event) {
+      toggleYelpMarkers(map);
+      $(this).toggleClass('marked');
+    });
 
   }; // end template
 
+  var toggleYelpMarkers = function(map) {
+	for(var i = 0; i < yelpMarkers.length; i++) {
+		if(yelpMarkers[i].getMap())
+			yelpMarkers[i].setMap(null);
+		else
+			yelpMarkers[i].setMap(map);
+	}
+  }
+  
+  var yelpMarkers = [];
+  
   var yelpLayer = function(map) {
 	var center = map.getCenter();
-	var yelpMarkers = [];
 	
 	Meteor.call('queryYelp', 'bike shop', center.lat(), center.lng(), '15', function(result, response) {
 		console.log(arguments);
