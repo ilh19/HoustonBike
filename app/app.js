@@ -17,16 +17,16 @@ if (Meteor.isClient) {
       query: {
         select: 'geometry',
         from: '1G_rg3pp5LTK1T3IoEcMSWsV4Dv6O53VTOXBIkI4'
-      },
-      styles: [{
-        polygonOptions: {
-            fillColor: "#274e13",
-            strokeColor: "#274e13"
-        },
-        polylineOptions: {
-            strokeColor: "#274e13"
-        }
-      }]
+      }
+      //styles: [{
+      //  polygonOptions: {
+      //      fillColor: "#274e13",
+      //      strokeColor: "#274e13"
+      //  },
+      //  polylineOptions: {
+      //      strokeColor: "#274e13"
+      //  }
+      //}]
     });
     cityBikeLayer.setMap(map);
     
@@ -37,20 +37,25 @@ if (Meteor.isClient) {
     });
         
     // ------ Bike rental locations ------
-    var rentalLayer = new google.maps.KmlLayer({
-        url: 'https://data.codeforhouston.com.s3.amazonaws.com/2013-05-13T23:25:41.376Z/phaseiibcyclestations-kml-file.kml',
-        styles: [{
-            markerOptions: {
-                iconName: "b_blue"
-            }
-           }]
-        });
-    // var rentalLayer = new google.maps.FusionTablesLayer({
-    //   query: {
-    //     select: 'geometry',
-    //     from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
-    //   },
-    // });
+    //var rentalLayer = new google.maps.KmlLayer({
+    //    url: 'https://data.codeforhouston.com.s3.amazonaws.com/2013-05-13T23:25:41.376Z/phaseiibcyclestations-kml-file.kml',
+    //    styles: [{
+    //        markerOptions: {
+    //            iconName: "b_blue"
+    //        }
+    //       }]
+    //    });
+    var rentalLayer = new google.maps.FusionTablesLayer({
+      query: {
+        select: 'geometry',
+        from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
+      },
+      styles: [{
+        markerOptions: {
+            iconName: "b_blue"
+        }
+      }]
+    });
     rentalLayer.setMap(map);
 	
 	var switchVisibility = function(rentalLayer, map) {
