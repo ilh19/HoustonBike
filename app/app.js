@@ -53,11 +53,11 @@ if (Meteor.isClient) {
     // });
     rentalLayer.setMap(map);
 	
-	var switchVisibility = function(rentalLayer, map) {
-		if(rentalLayer.getMap())
-			rentalLayer.setMap(null);
+	var switchVisibility = function(layer, map) {
+		if(layer.getMap())
+			layer.setMap(null);
 		else
-			rentalLayer.setMap(map);
+			layer.setMap(map);
 	}
 	
 	$('#rentalLayer').click(function(event) {
