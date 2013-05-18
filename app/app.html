@@ -1,43 +1,49 @@
-<!-- <head>
-  <title>app</title>
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>Houston Bike App</title>
+
+	<script type="text/javascript"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbckcJZ_pOvEhYkJIKrQEQWVEgYc9dYRY&sensor=true">
+	</script>
+
+	<script type="text/javascript">
+	  function initialize() {
+	    var mapOptions = {
+	      center: new google.maps.LatLng(29.760193,-95.36939),
+	      zoom: 13,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(document.getElementById("map-canvas"),
+	        mapOptions);
+
+	    // bike routes
+	    var bikeLayer = new google.maps.BicyclingLayer();
+		bikeLayer.setMap(map);
+
+		// bike rental locations
+		var rentalLayer = new google.maps.FusionTablesLayer({
+		  query: {
+		    select: 'geometry',
+		    from: '1H1huBiR9EfC4SjzQ5Ju2mIkzOUOvxULT5QwTzoE'
+		  },
+		});
+		rentalLayer.setMap(map);
+
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 </head>
 
 <body>
-  {{> hello}}
+	<div id="map-canvas"/>
 </body>
 
-<template name="hello">
+<!-- <body>
+  {{> hello}}
+</body> -->
+
+<!-- <template name="hello">
   <h1>Hello World Robyn!!</h1>
   {{greeting}}
   <input type="button" value="Click" />
 </template> -->
-
-<head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<style type="text/css">
-  html { height: 100% }
-  body { height: 100%; margin: 0; padding: 0 }
-  #map-canvas { height: 100% }
-</style>
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbckcJZ_pOvEhYkJIKrQEQWVEgYc9dYRY&sensor=true">
-</script>
-<script type="text/javascript">
-  function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(29.760193,-95.36939),
-      zoom: 12,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"),
-        mapOptions);
-
-    var bikeLayer = new google.maps.BicyclingLayer();
-	bikeLayer.setMap(map);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-</head>
-<body>
-<div id="map-canvas"/>
-</body>
