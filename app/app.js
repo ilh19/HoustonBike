@@ -16,6 +16,8 @@ if (Meteor.isClient) {
 
     rentalLayer = getRentalBikeLayer(map);
     rentalLayer.setMap(map);
+	
+	yelpLayer(map);
 
     // MAP LISTENERS
     google.maps.event.addListener(map, 'click', function(e) {
@@ -52,6 +54,48 @@ if (Meteor.isClient) {
 
   }; // end template
 
+  var yelpLayer = function(map) {
+	var center = map.getCenter();
+	var yelpMarkers = [];
+	
+	Meteor.call('queryYelp', 'bike shop', center.lat(), center.lng(), '15', function(result, response) {
+		console.log(arguments);
+		if(response.statusCode == 200) {
+			var yelpResponse = EJSON.parse(response.content);
+			var yelpResults = yelpResponse.businesses;
+				
+			for(var i = 0; i < yelpResults.length; i++) {
+				var biz = yelpResults[i];
+					
+				var options = {
+					position : new google.maps.LatLng(biz.latitude, biz.longitude),
+					map : map,
+					title: biz.name
+				};
+
+				var yelpMarker = new google.maps.Marker(options);
+				yelpMarker.biz = biz;
+				yelpMarkers.push(yelpMarker);
+					
+				google.maps.event.addListener(yelpMarker, 'click', function(e) {
+					for(var j = 0; j < yelpMarkers.length; j++) {
+						var currentMarker = yelpMarkers[j];
+						
+						if(currentMarker.position.equals(e.latLng)) {
+							var infoWindow = new google.maps.InfoWindow({
+								content: Template.yelpInfo(yelpMarkers[j].biz) 
+							});
+						
+							infoWindow.open(map,yelpMarkers[j]);
+						}
+					}
+					console.log(yelpMarkers, e.latLng);
+				});
+			}
+		}
+	});
+  }
+  
   var switchVisibility = function(layer, map) {
     if (layer.getMap()) layer.setMap(null);
     else layer.setMap(map);
@@ -106,6 +150,50 @@ if (Meteor.isClient) {
         }
       }]
     });
+    rentalLayer.setMap(map);
+	}
+	
+	var switchVisibility = function(layer, map, event) {
+		if(layer.getMap())
+			layer.setMap(null);
+		else
+			layer.setMap(map);
+		$(event).toggleClass('marked');
+	}
+	
+	$('#rentalLayer').click(function(event) {
+		switchVisibility(rentalLayer, map, this);
+	});
+	$('#cityBikeLayer').click(function(event) {
+		switchVisibility(cityBikeLayer, map, this);
+	});
+	$('#googleBikeLayer').click(function(event) {
+		switchVisibility(googleBikeLayer, map, this);
+	});
   };
 
+if (Meteor.isServer) {
+//   Meteor.startup(function() {
+//     // code to run on server at startup
+//   });
+	Meteor.methods({
+		'queryYelp' : function(term, lat, longitude, radius, callback) {
+			var url = 'http://api.yelp.com/business_review_search?ywsid=4z8j2En3Yc4AI-Whlsrejw';
+			url = url + '&term=' + term;
+			url = url + '&lat=' + lat;
+			url = url + '&long=' + longitude;
+			url = url + '&radius=' + radius;
+			url = url + '&limit=' + 10;
+			return Meteor.http.get(url, {
+				'data' : {
+					'term': term,
+					'lat' : lat,
+					'long' : longitude,
+					'radius' : radius,
+					'limit' : 10,
+					'ywsid': '4z8j2En3Yc4AI-Whlsrejw'
+				}
+			});
+		}
+   });
 }
